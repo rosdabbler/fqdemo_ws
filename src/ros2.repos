@@ -4,7 +4,11 @@
 # Example:
 ############
 repositories:
-  examples:
+  fqdemo_msgs:
     type: git
-    url: https://github.com/ros2/examples.git
-    version: foxy
+    url: https://github.com/rosdabbler/fqdemo_msgs.git
+    version: main
+  fqdemo_nodes:
+    type: git
+    url: https://github.com/rosdabbler/fqdemo_nodes.git
+    version: main
