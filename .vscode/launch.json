@@ -38,13 +38,13 @@
       "id": "package",
       "type": "promptString",
       "description": "Package name",
-      "default": "examples_rclcpp_minimal_publisher"
+      "default": "fqdemo_nodes"
     },
     {
       "id": "program",
       "type": "promptString",
       "description": "Program name",
-      "default": "publisher_member_function"
+      "default": "subpub"
     }
   ]
 }

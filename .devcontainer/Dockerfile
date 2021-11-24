@@ -147,3 +147,8 @@ RUN apt-get update \
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
 ENV QT_X11_NO_MITSHM 1
+
+# Extra additions to support fqdemo
+FROM gazebo-nvidia as fqdemo 
+RUN apt-get update \
+  && apt-get install -y doxygen
