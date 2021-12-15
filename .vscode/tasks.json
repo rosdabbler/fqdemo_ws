@@ -3,7 +3,6 @@
     // for the documentation about the tasks.json format
     "version": "2.0.0",
     "tasks": [
-        // Build tasks
         {
             "label": "build",
             "detail": "Build workspace (default)",
@@ -16,12 +15,12 @@
             "problemMatcher": "$gcc"
         },
         {
-          "label": "pybuild (links for python dev)",
-          "detail": "Build workspace with --symlink-install for local Python debug",
-          "type": "shell",
-          "command": "colcon build --merge-install --symlink-install --cmake-args '-DCMAKE_BUILD_TYPE=RelWithDebInfo' '-DCMAKE_EXPORT_COMPILE_COMMANDS=On' -Wall -Wextra -Wpedantic",
-          "group": "build",
-          "problemMatcher": "$gcc"
+            "label": "pybuild (links for python dev)",
+            "detail": "Build workspace with --symlink-install for local Python debug",
+            "type": "shell",
+            "command": "colcon build --merge-install --symlink-install --cmake-args '-DCMAKE_BUILD_TYPE=RelWithDebInfo' '-DCMAKE_EXPORT_COMPILE_COMMANDS=On' -Wall -Wextra -Wpedantic",
+            "group": "build",
+            "problemMatcher": "$gcc"
         },
         {
             "label": "debug",
@@ -31,7 +30,6 @@
             "group": "build",
             "problemMatcher": "$gcc"
         },
-        // Test tasks
         {
             "label": "test",
             "detail": "Run all unit tests and show results.",
@@ -42,12 +40,11 @@
                 "isDefault": true
             }
         },
-        // Clean
         {
             "label": "clean",
             "detail": "Run the clean target",
             "type": "shell",
-            "command": "colcon build --cmake-target clean",
+            "command": "colcon build --merge-install --cmake-target clean",
             "problemMatcher": "$gcc"
         },
         {
@@ -57,11 +54,18 @@
             "command": "rm -fr build install log; py3clean .",
             "problemMatcher": []
         },
-        // Linting and static code analysis tasks
         {
             "label": "fix",
             "detail": "Reformat files with uncrustify.",
             "type": "shell",
+            "options": {
+                "shell": {
+                    "args": [
+                        "-c",
+                        "-i"
+                    ]
+                }
+            },
             "command": "ament_uncrustify --reformat src/",
             "problemMatcher": []
         },
@@ -69,6 +73,14 @@
             "label": "uncrustify",
             "detail": "Lint files with uncrustify.",
             "type": "shell",
+            "options": {
+                "shell": {
+                    "args": [
+                        "-c",
+                        "-i"
+                    ]
+                }
+            },
             "command": "ament_uncrustify src/",
             "presentation": {
                 "panel": "dedicated",
@@ -81,14 +93,13 @@
                     "source": " uncrustify",
                     "fileLocation": "relative",
                     "pattern": [
-                    /// just the file name message
                         {
                             "regexp": "^(.*)'(.*)':",
                             "kind": "file",
                             "file": 2,
                             "message": 1
-                        },
-                  ]
+                        }
+                    ]
                 }
             ]
         },
@@ -96,6 +107,14 @@
             "label": "cpplint",
             "detail": "Lint files with cpplint.",
             "type": "shell",
+            "options": {
+                "shell": {
+                    "args": [
+                        "-c",
+                        "-i"
+                    ]
+                }
+            },
             "command": "ament_cpplint src/",
             "presentation": {
                 "panel": "dedicated",
@@ -123,6 +142,14 @@
             "label": "cppcheck",
             "detail": "Run static code checker cppcheck.",
             "type": "shell",
+            "options": {
+                "shell": {
+                    "args": [
+                        "-c",
+                        "-i"
+                    ]
+                }
+            },
             "command": "ament_cppcheck src/",
             "presentation": {
                 "panel": "dedicated",
@@ -148,6 +175,14 @@
             "label": "lint_cmake",
             "detail": "Run lint on cmake files.",
             "type": "shell",
+            "options": {
+                "shell": {
+                    "args": [
+                        "-c",
+                        "-i"
+                    ]
+                }
+            },
             "command": "ament_lint_cmake src/",
             "presentation": {
                 "panel": "dedicated",
@@ -173,6 +208,14 @@
             "label": "flake8",
             "detail": "Run flake8 on python files.",
             "type": "shell",
+            "options": {
+                "shell": {
+                    "args": [
+                        "-c",
+                        "-i"
+                    ]
+                }
+            },
             "command": "ament_flake8 src/",
             "presentation": {
                 "panel": "dedicated",
@@ -181,25 +224,33 @@
             },
             "problemMatcher": [
                 {
-                  "owner": "flake8",
-                  "source": "flake8",
-                  "pattern": [
-                    {
-                      "code": 4,
-                      "column": 3,
-                      "file": 1,
-                      "line": 2,
-                      "message": 5,
-                      "regexp": "^(.+):(\\d+):(\\d+): (\\w\\d+) (.+)$"
-                    }
-                  ]
+                    "owner": "flake8",
+                    "source": "flake8",
+                    "pattern": [
+                        {
+                            "code": 4,
+                            "column": 3,
+                            "file": 1,
+                            "line": 2,
+                            "message": 5,
+                            "regexp": "^(.+):(\\d+):(\\d+): (\\w\\d+) (.+)$"
+                        }
+                    ]
                 }
-              ]
+            ]
         },
         {
             "label": "pep257",
             "detail": "Run pep257 on python files.",
             "type": "shell",
+            "options": {
+                "shell": {
+                    "args": [
+                        "-c",
+                        "-i"
+                    ]
+                }
+            },
             "command": "ament_pep257 src/",
             "presentation": {
                 "panel": "dedicated",
@@ -226,6 +277,14 @@
             "label": "xmllint",
             "detail": "Run xmllint on xml files.",
             "type": "shell",
+            "options": {
+                "shell": {
+                    "args": [
+                        "-c",
+                        "-i"
+                    ]
+                }
+            },
             "command": "ament_xmllint src/",
             "presentation": {
                 "panel": "dedicated",
@@ -252,14 +311,29 @@
         {
             "label": "lint all",
             "detail": "Run all linters.",
-            "dependsOn":["cppcheck", "cpplint", "flake8", "lint_cmake", "pep257","xmllint", "uncrustify"],
+            "dependsOn": [
+                "cppcheck",
+                "cpplint",
+                "flake8",
+                "lint_cmake",
+                "pep257",
+                "xmllint",
+                "uncrustify"
+            ],
             "problemMatcher": []
         },
-        // Workspace editing tasks
         {
             "label": "new ament_cmake package",
             "detail": "Create a new ROS cpp package from a template.",
             "type": "shell",
+            "options": {
+                "shell": {
+                    "args": [
+                        "-c",
+                        "-i"
+                    ]
+                }
+            },
             "command": "ros2 pkg create --destination-directory src --build-type ament_cmake ${input:package}",
             "problemMatcher": []
         },
@@ -267,6 +341,14 @@
             "label": "new ament_python package",
             "detail": "Create a new ROS python package from a template.",
             "type": "shell",
+            "options": {
+                "shell": {
+                    "args": [
+                        "-c",
+                        "-i"
+                    ]
+                }
+            },
             "command": "ros2 pkg create --destination-directory src --build-type ament_python ${input:package}",
             "problemMatcher": []
         },
@@ -274,14 +356,14 @@
             "label": "import from workspace file",
             "detail": "Use vcs to import modules specified by a workspace/rosinstall file.",
             "type": "shell",
-            "command": "vcs import < src/ros2.repos src",
+            "command": "vcs import < ros2.repos src",
             "problemMatcher": []
         },
         {
             "label": "update workspace file",
             "detail": "Use vcs to update repositories in src to workspace file.",
             "type": "shell",
-            "command": "vcs export src > src/ros2.repos",
+            "command": "vcs export src > ros2.repos",
             "problemMatcher": []
         },
         {
@@ -294,9 +376,9 @@
     ],
     "inputs": [
         {
-          "id": "package",
-          "type": "promptString",
-          "description": "Package name"
+            "id": "package",
+            "type": "promptString",
+            "description": "Package name"
         }
-      ]
+    ]
 }

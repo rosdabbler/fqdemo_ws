@@ -1,3 +1,12 @@
+# Demo of a full quality ros2 package.
+
+## prerequisites:
+
+```bash
+sudo apt install ros-$ROS_DISTRO-ament-cppcheck
+```
+
+---
 # VSCode ROS2 Workspace Template
 
 This template will get you set up using ROS2 with VSCode as your IDE.

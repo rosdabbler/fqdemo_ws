@@ -1,10 +1,17 @@
 {
     "editor.tabSize": 2,
     "[python]": {
-      "editor.insertSpaces": true,
-      "editor.tabSize": 4
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4
     },
-
+    "[json]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4
+    },
+    "[jsonc]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4
+    },
     "editor.rulers": [
         100
     ],
@@ -74,7 +81,7 @@
         ".vscode",
         ".vscode-insiders",
         ".devcontainer/devcontainer.json"
-],
-"ros.distro": "rolling",
-"restructuredtext.confPath": "${workspaceFolder}/src/fqdemo_nodes/doc/sphinx_project",
+    ],
+    "ros.distro": "rolling",
+    "restructuredtext.confPath": "${workspaceFolder}/src/fqdemo_nodes/doc/sphinx_project",
 }
