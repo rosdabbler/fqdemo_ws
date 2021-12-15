@@ -76,4 +76,5 @@
         ".devcontainer/devcontainer.json"
 ],
 "ros.distro": "rolling",
+"restructuredtext.confPath": "${workspaceFolder}/src/fqdemo_nodes/doc/sphinx_project",
 }
